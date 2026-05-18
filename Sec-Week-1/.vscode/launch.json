@@ -1,0 +1,39 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug OrderVerwerken (incasso)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/OrderVerwerken/main",
+            "args": [
+                "ordersv3_incasso.txt"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/OrderVerwerken",
+            "externalConsole": false,
+            "logging": {
+                "programOutput": true,
+                "engineLogging": false
+            },
+            "preLaunchTask": "C/C++: gcc-13 build active file"
+        },
+        {
+            "name": "Debug OrderVerwerken (exploit)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/OrderVerwerken/main",
+            "args": [
+                "exploit_artikelnr.txt"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/OrderVerwerken",
+            "externalConsole": false,
+            "logging": {
+                "programOutput": true,
+                "engineLogging": false
+            },
+            "preLaunchTask": "C/C++: gcc-13 build active file"
+        }
+    ]
+}

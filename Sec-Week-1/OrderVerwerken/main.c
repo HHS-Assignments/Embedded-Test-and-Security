@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <string.h>
+#include <time.h>
+#include <stdlib.h>
 
 #pragma warning(disable : 4996)
 
@@ -62,7 +65,7 @@ int main(int argc, char** argv) {
 	}
 	else {
 		printf("geen input bestand");
-		exit();
+		exit(500);
 	}
 
 	f = fopen(filename, "r");
@@ -83,7 +86,6 @@ int main(int argc, char** argv) {
 
 	fscanf(f, "%s %s", buffer, buffer2); 
 	memcpy(klantnr, buffer2, sizeof(buffer2));
-	=
 	if (bekende_klant(klantnr)) {
 		//todo vul bankrekening op basis van klantnr uit database
 		strcpy(incassorekening, "bekend");
@@ -105,7 +107,7 @@ int main(int argc, char** argv) {
 		
 	int aantal_order_regels = 0;
 	while (fscanf(f, " %s %d", artikelnr, &aantal) == 2) {
-		if (aantal <= 0) { printf("ongeldige bestelling"); exit(); }
+		if (aantal <= 0) { printf("ongeldige bestelling"); exit(1); }
 		//printf("%s %d\n", artikelnr, aantal);  //voor debug om ruw inlezen te controleren
 		aantal_order_regels++;
 		bestelling[aantal_order_regels].aantal = aantal;
