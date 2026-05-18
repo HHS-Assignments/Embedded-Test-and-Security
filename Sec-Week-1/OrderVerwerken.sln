@@ -8,6 +8,8 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
+		DebugOverflow|x64 = DebugOverflow|x64
+		DebugNormal|x64 = DebugNormal|x64
 		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
@@ -15,6 +17,10 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Debug|x64.ActiveCfg = Debug|x64
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Debug|x64.Build.0 = Debug|x64
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugOverflow|x64.ActiveCfg = DebugOverflow|x64
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugOverflow|x64.Build.0 = DebugOverflow|x64
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugNormal|x64.ActiveCfg = DebugNormal|x64
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugNormal|x64.Build.0 = DebugNormal|x64
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Debug|x86.ActiveCfg = Debug|Win32
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Debug|x86.Build.0 = Debug|Win32
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Release|x64.ActiveCfg = Release|x64

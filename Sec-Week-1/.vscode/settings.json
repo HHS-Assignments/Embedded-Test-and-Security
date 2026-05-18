@@ -1,0 +1,7 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "gcc": true,
+        "./orderverwerker": true,
+        "printf": true
+    }
+}

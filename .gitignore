@@ -431,3 +431,6 @@ temp/
 
 #Exe Files
 *.exe
+
+#Exclude lock Docx files
+.~lock.*.docx#

@@ -1,0 +1,27 @@
+﻿Volgnummer,Beschrijving Functionele Eis
+1,Matrix kan aangemaakt worden met gegeven afmetingen (rows × columns)
+2,Matrix kan initialiseerd worden met default constructor (lege matrix)
+3,Matrix kan gekopieerd worden (copy constructor)
+4,"Matrix-elementen kunnen ingesteld worden via set(row, col, value)"
+5,"Matrix-elementen kunnen gelezen worden via get(row, col)"
+6,Matrix-elementen kunnen gelezen worden via index operator [][]
+7,Matrix-grootte kan opgehaald worden via size() methode
+8,Twee matrices kunnen opgeteld worden (addInPlace)
+9,Twee matrices kunnen opgeteld worden en geeft nieuwe matrix terug (add + operator)
+10,Matrix kan vermenigvuldigd worden met een scalar (multiplyInPlace)
+11,Matrix kan vermenigvuldigd worden met een scalar en geeft nieuwe matrix terug (multiply + operator)
+12,Twee matrices kunnen vermenigvuldigd worden (matrix product)
+13,Matrix vermenigvuldiging werkt alleen als kolommen eerste matrix gelijk zijn aan rijen tweede matrix
+14,Hadamard product (element-wise multiplicatie) kan inplace uitgevoerd worden
+15,Hadamard product kan uitgevoerd worden en geeft nieuwe matrix terug
+16,Hadamard product werkt alleen als beide matrices dezelfde dimensies hebben
+17,Matrix kan getransponeerd worden inplace (rijen en kolommen omgewisseld)
+18,Matrix kan getransponeerd worden en geeft nieuwe matrix terug
+19,Twee matrices kunnen vergeleken worden op gelijkheid (operator ==)
+20,Matrix kan geconverteerd worden naar ander type (convertTo template methode)
+21,Out of bounds exception wordt geworpen bij ongeldig get(),,
+22,Out of bounds exception wordt geworpen bij ongeldig set(),,
+23,Out of bounds exception wordt geworpen bij ongeldig [][],,
+24,Invalid argument exception wordt geworpen bij optellen van matrices met verschillende dimensies,,
+25,Invalid argument exception wordt geworpen bij hadamard product met verschillende dimensies,,
+26,Invalid argument exception wordt geworpen bij vermenigvuldiging met incompatibele dimensies

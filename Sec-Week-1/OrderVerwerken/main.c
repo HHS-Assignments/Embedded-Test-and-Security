@@ -116,7 +116,7 @@ int main(int argc, char** argv) {
 	// Uncomment degene die je wil testen per keer
 	//assignment_B();
 	//assignment_C();
-	assignment_DEF();
+	//assignment_DEF();
 
 	FILE *f;
 	char filename[128] = "ordersv3_incasso.txt";
@@ -134,13 +134,16 @@ int main(int argc, char** argv) {
 	}
 	
 	char order_datum[12];
+        printf("order_datum addr: %p\n", (void*)order_datum);
 	get_order_date(order_datum);
 
 	char buffer[20];
 	char buffer2[20];
+        printf("buffer addr: %p, buffer2 addr: %p\n", (void*)buffer, (void*)buffer2);
 
 	int klant_geverifieerd = 0;
 	char klantnr[16];
+        printf("klantnr addr: %p, klant_geverifieerd addr: %p\n", (void*)klantnr, (void*)&klant_geverifieerd);
 	char incassorekening[10];
 	
 
@@ -164,6 +167,7 @@ int main(int argc, char** argv) {
 	
 	
 	char artikelnr[8];
+        printf("artikelnr addr: %p\n", (void*)artikelnr);
 	int aantal;
 		
 	int aantal_order_regels = 0;
