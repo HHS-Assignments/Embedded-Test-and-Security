@@ -43,8 +43,8 @@ void get_order_date(char* s) {
 	time(&t);
 	tm_info = localtime(&t);
 
-	// Format the date as "yyyy-mm-dd"
-	strftime(s, 11, "%Y-%m-%d", tm_info);
+// Format the date as "yyyy-mm-dd"
+//strftime(s, 11, "%Y-%m-%d", tm_info);
 }
 
 int main(int argc, char** argv) {
@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
 
 	fscanf(f, "%s %s", buffer, buffer2); 
 	memcpy(klantnr, buffer2, sizeof(buffer2));
-	=
+
 	if (bekende_klant(klantnr)) {
 		//todo vul bankrekening op basis van klantnr uit database
 		strcpy(incassorekening, "bekend");

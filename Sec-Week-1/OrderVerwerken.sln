@@ -1,28 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32802.440
+# Visual Studio Version 18
+VisualStudioVersion = 18.5.11716.220 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OrderVerwerken", "OrderVerwerken\OrderVerwerken.vcxproj", "{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
-		DebugOverflow|x64 = DebugOverflow|x64
-		DebugNormal|x64 = DebugNormal|x64
 		Debug|x86 = Debug|x86
+		DebugNormal|x64 = DebugNormal|x64
+		DebugNormal|x86 = DebugNormal|x86
+		DebugOverflow|x64 = DebugOverflow|x64
+		DebugOverflow|x86 = DebugOverflow|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Debug|x64.ActiveCfg = Debug|x64
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Debug|x64.Build.0 = Debug|x64
-		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugOverflow|x64.ActiveCfg = DebugOverflow|x64
-		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugOverflow|x64.Build.0 = DebugOverflow|x64
-		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugNormal|x64.ActiveCfg = DebugNormal|x64
-		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugNormal|x64.Build.0 = DebugNormal|x64
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Debug|x86.ActiveCfg = Debug|Win32
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Debug|x86.Build.0 = Debug|Win32
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugNormal|x64.ActiveCfg = DebugNormal|x64
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugNormal|x64.Build.0 = DebugNormal|x64
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugNormal|x86.ActiveCfg = DebugNormal|x64
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugNormal|x86.Build.0 = DebugNormal|x64
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugOverflow|x64.ActiveCfg = DebugOverflow|x64
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugOverflow|x64.Build.0 = DebugOverflow|x64
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugOverflow|x86.ActiveCfg = DebugOverflow|x64
+		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.DebugOverflow|x86.Build.0 = DebugOverflow|x64
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Release|x64.ActiveCfg = Release|x64
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Release|x64.Build.0 = Release|x64
 		{F806CA5B-3A00-48C3-B5B6-2FDD1D2BA1B1}.Release|x86.ActiveCfg = Release|Win32
