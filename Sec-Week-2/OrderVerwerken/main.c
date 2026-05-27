@@ -24,7 +24,7 @@ int berekenPrijs(struct orderregel* b, int size) {
 int berekenPrijsPracticum2(struct orderregel* b, int size) {
 	//todo echte prijs ophalen uit een database
 	//voorlopig ieder artikel 3 Euro
-	char bezorgkosten[4];
+	char bezorgkosten[5];
 	int p = 0;
 	if (size > 2) {
 		strcpy(bezorgkosten, "Geen");		
@@ -32,7 +32,7 @@ int berekenPrijsPracticum2(struct orderregel* b, int size) {
 	else {
 		p = 5;
 	}
-	printf("Bezorgkosten: %d", p); 
+	printf("Bezorgkosten: %d\n", p); 
 	for (int r = 0; r < size; r++) {
 		p += ((b + r)->aantal) * 3;
 	}
@@ -79,12 +79,12 @@ int main(int argc, char** argv) {
 	
 
 	FILE* f;
-	char filename[128] = "ordersv3_incasso.txt";
+	char filename[128] = "ordersv3_incasso_overflowaantal.txt";
 	if (argc > 1) {
 		strcpy(filename, argv[1]);
 	}
 	else {
-		printf("geen input bestand opgegeven, gebruik standaard bestand\n");
+		printf("geen input bestand opgegeven, gebruik %s\n", filename);
 	}
 
 	f = fopen(filename, "r");
