@@ -78,20 +78,21 @@ int main(int argc, char** argv) {
 	// printf("%p \n", &test_functie); //vraag 3
 	
 
-	FILE *f;
-	char filename[128];
+	FILE* f;
+	char filename[128] = "ordersv3_incasso.txt";
 	if (argc > 1) {
 		strcpy(filename, argv[1]);
 	}
 	else {
-		printf("geen input bestand");
-		exit(0);
+		printf("geen input bestand opgegeven, gebruik standaard bestand\n");
 	}
 
 	f = fopen(filename, "r");
 	if (f == NULL) {
-		printf("file open error");
+		printf("file open error\n");
+		exit(1);
 	}
+
 	
 	char order_datum[12];
 	get_order_date(order_datum);
