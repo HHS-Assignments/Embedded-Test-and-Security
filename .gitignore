@@ -434,3 +434,6 @@ temp/
 
 #Exclude lock Docx files
 .~lock.*.docx#
+
+#Python Virutal env
+.venv
