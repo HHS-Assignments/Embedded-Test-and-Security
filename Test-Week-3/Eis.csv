@@ -1,0 +1,9 @@
+id,requirement,description
+1,Constructor-initialisatie,"Constructor met rijen en kolommen maakt een nul-geïnitialiseerde matrix van de opgegeven grootte"
+2,Standaardconstructor,"Standaardconstructor maakt een lege matrix met grootte {0,0}"
+3,Diepe-kopie-semantiek,"Copy constructor en toewijzingsoperator maken diepe kopieën (geen gedeelde opslag)"
+4,Elementtoegang en bounds-controle,"set/get en operator[] geven geldige toegang en gooien std::invalid_argument bij out-of-bounds"
+5,Grootte-rapportage,"size() geeft correcte rij- en kolomaantallen terug"
+6,Optelbewerkingen,"addInPlace en operator+ voeren matrixoptelling correct uit zonder inputs onnodig te wijzigen"
+7,Vermenigvuldigingsbewerkingen,"Scalair vermenigvuldigen, matrixvermenigvuldiging en Hadamard (elementgewijs) werken correct"
+8,Hulpmiddelen en vergelijkingen,"transposeInPlace, convertTo (typeconversie) en operator== vergelijken inhoud en afmetingen"
