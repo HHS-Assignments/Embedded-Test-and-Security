@@ -94,12 +94,13 @@ void get_order_date(char* s) {
 
 int main(int argc, char** argv) {
 	
-	assignment_B();
+	//assignment_B();
 	//assignment_C();
 	//assignment_DEF();
 
 	FILE* f;
-	char filename[128] = "ordersv3_incasso.txt";
+	//char filename[128] = "ordersv3_incasso.txt"; // Normal
+	char filename[128] = "exploit_artikelnr.txt"; //Exploit
 	if (argc > 1) {
 		strcpy(filename, argv[1]);
 	}
@@ -144,6 +145,9 @@ int main(int argc, char** argv) {
 	int aantal;
 
 	int aantal_order_regels = 0;
+	printf("%p\n", artikelnr);
+	printf("%p\n", &aantal);
+	printf("%p\n", order_datum);
 	while (fscanf(f, " %s %d", artikelnr, &aantal) == 2) {
 		if (aantal <= 0) {
 			printf("ongeldige bestelling");
@@ -154,7 +158,7 @@ int main(int argc, char** argv) {
 		strcpy(bestelling[aantal_order_regels].idnr, artikelnr);
 	}
 
-	for (int j = 1; j <= aantal_order_regels; j++) {
+	for (int j = 1; j <= aantal_order_regels; j++) {while (fscanf(f, " %s %d", artikelnr, &aantal) == 2)
 		printf("artikelnr: %s aantal: %d\n", bestelling[j].idnr, bestelling[j].aantal);
 	}
 

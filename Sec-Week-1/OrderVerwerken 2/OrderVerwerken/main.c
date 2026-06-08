@@ -45,28 +45,87 @@ void get_order_date(char* s) {
 
 int main(int argc, char** argv) {
 
-	//int* ptr;
-	//int Tellen[10] = { 0,1,2,3,4,5,6,7,8,9 };
-	//ptr = (int*)0x12345678; // herkenbare waarde
-	//printf("Voor: %p\n", ptr);
-	//Tellen[12] = 0xDEADBEEF;
-	//printf("Na: %p\n", ptr);
+
+	// OPD A - extra variabelen + memory layout bekijken
+	int a = 10;
+	int b = 20;
+	int c = 30;
+	char bufer[8];
+
+	printf("OPD A - adressen:\n");
+	printf("a: %p\n", (void*)&a);
+	printf("b: %p\n", (void*)&b);
+	printf("c: %p\n", (void*)&c);
+	printf("buffer: %p\n", (void*)bufer);
+
+
+	// OPD B - strcpy overflow effect + string lengte
+	char small[8];
+	// String langer dan buffer -> overflow test
+	strcpy(small, "ABCDEFGHIJKL"); // 12 chars + \0
+
+	printf("\nOPD B - inhoud buffer: %s\n", small);
+	printf("Let op: overflow kan a/b/c overschrijven\n");
+
+	printf("Lengte string = %zu\n", strlen("ABCDEFGHIJKL"));
+
+
+	// OPD C - array overflow via foutieve index
 	int Tellen[10] = { 0,1,2,3,4,5,6,7,8,9 };
-	int* ptr = &Tellen[0];
 
-	Tellen[12] = 0xDEADBEEF;   // overschrijft mogelijk ptr
+	printf("\nOPD C - array overflow\n");
+	Tellen[12] = 0xDEADBEEF;  // foutieve index -> memory corruptie
 
-	*ptr = 5;                  // schrijven naar het adres waar ptr naar wijst
+	printf("Tellen[12] gezet (out of bounds)\n");
+
+
+	//
+	// D NOG AAN WERKEN
+	// 
+
+	// OPD D - pointer wordt overschreven via overflow
+	int fakeBuffer[5];
+	int ptr = 0x12345678;
+
+	printf("Voor: ptr = %p\n", (void*)ptr);
+
+	// overflow: schrijf voorbij array in geheugen
+	fakeBuffer[6] = 0xCAFEBABE;   // overschrijft geheugen naast buffer
+
+	printf("Na: ptr = %p\n", (void*)ptr);
+
+
+	// OPD E - effect van aangepaste pointer
+	printf("\nOPD E - pointer dereference\n");
+
+	// LET OP: dit kan crashen als ptr echt aangepast is
+	// *ptr = 5;
+
+	printf("Als ptr geldig was -> schrijven naar adres\n");
+
+
+	// OPD F - crash veroorzaken zonder printf
+	printf("\nOPD F - crash trigger\n");
+
+	int* crashPtr = NULL;
+
+	// Alternatieve instructie (geen printf):
+	//*crashPtr = 123;   // NULL dereference -> crash
+
 
 	FILE *f;
-	char filename[128];
-	if (argc > 1) {
-		strcpy(filename, argv[1]);
-	}
-	else {
-		printf("geen input bestand");
-		exit();
-	}
+	//char filename[128];
+
+	//if (argc > 1) {
+	//	strcpy(filename, argv[1]);
+	//}
+	//else {
+	//	printf("geen input bestand");
+	//	exit();
+	//}
+
+	//char filename[128] = "ordersv3_incasso.txt"; // Normal
+	char filename[128] = "exploit_artikelnr.txt"; //Exploit
 
 	f = fopen(filename, "r");
 	if (f == NULL) {
