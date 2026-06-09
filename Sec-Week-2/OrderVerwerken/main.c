@@ -61,6 +61,10 @@ void get_order_date(char* s) {
 	time(&t);
 	tm_info = localtime(&t);
 
+	if (tm_info == NULL) {          // ADD THIS CHECK
+		strcpy(s, "0000-00-00");
+		return;
+	}
 	// Format the date as "yyyy-mm-dd"
 	strftime(s, 11, "%Y-%m-%d", tm_info);
 }
@@ -79,7 +83,8 @@ int main(int argc, char** argv) {
 	
 
 	FILE* f;
-	char filename[128] = "ordersv3_incasso_overflowaantal.txt";
+	//char filename[128] = "ordersv3_incasso_overflowaantal.txt";
+	char filename[128] = "ordersv3_incasso.txt";
 	if (argc > 1) {
 		strcpy(filename, argv[1]);
 	}
@@ -106,8 +111,8 @@ int main(int argc, char** argv) {
 	
 
 	fscanf(f, "%s %s", buffer, buffer2); 
-	memcpy(klantnr, buffer2, sizeof(buffer2));
-	//memcpy(klantnr, buffer2, sizeof(klantnr));
+	//memcpy(klantnr, buffer2, sizeof(buffer2));
+	memcpy(klantnr, buffer2, sizeof(klantnr));
 	
 	if (bekende_klant(klantnr)) {
 		// vul bankrekening op basis van klantnr uit database
