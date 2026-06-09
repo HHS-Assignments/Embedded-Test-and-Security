@@ -1,10 +1,6 @@
 /*
  * C Security Practicum 3
  * Onderwerpen: Integer overflow, Format string, Memory dump
- *
- * Alles staat in main() zodat het lekker overzichtelijk is.
- * Per onderdeel staat er een printf met de naam van het onderdeel
- * en daarna de uitleg in commentaar bij de code zelf.
  */
 
 #define _CRT_SECURE_NO_WARNINGS
