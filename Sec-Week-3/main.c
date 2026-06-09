@@ -21,8 +21,6 @@ int main(void) {
 
     printf("\n=== Integer Overflow 1: Two's complement ===\n");
     /*
-     * Hier zet ik een paar signed ints klaar zodat ik ze in
-     * het Memory Window van Visual Studio kan bekijken.
      * Een signed int wordt opgeslagen als two's complement.
      * Voor -1 zie je in geheugen alleen maar FF FF FF FF staan,
      * dat is precies wat two's complement doet: alle bits 1.
@@ -39,7 +37,7 @@ int main(void) {
 
     printf("\n=== Integer Overflow 2: signed getal max en min ===\n");
     /*
-     * Ik kies hier een int16_t (16 bits, signed).
+     * int16_t (16 bits, signed).
      * Bij n bits signed geldt:
      *   max =  2^(n-1) - 1
      *   min = -2^(n-1)
@@ -56,7 +54,7 @@ int main(void) {
 
     printf("\n=== Integer Overflow 3: overflow voorbeeld ===\n");
     /*
-     * Ik begin op de max waarde en tel er 1 bij op.
+     * Je begin op de max waarde en tel er 1 bij op.
      * Resultaat is niet 32768 maar -32768 (klapt om naar min).
      * Dit komt door two's complement: de bit-patronen lopen rond.
      */
@@ -80,7 +78,7 @@ int main(void) {
     printf("\n=== Integer Overflow 5: underflow unsigned ===\n");
     /*
      * Een unsigned getal kan niet negatief worden.
-     * Als ik 0 met 1 verlaag, dan rolt hij naar het maximum.
+     * Als je 0 met 1 verlaag, dan rolt hij naar het maximum.
      * Voor uint16_t is dat 65535.
      */
     uint16_t u = 0;
@@ -88,28 +86,9 @@ int main(void) {
     u = u - 1;
     printf("na    underflow: %u  (rolt naar UINT16_MAX)\n", u);
 
-
-    printf("\n=== Integer Overflow 6: alleen in C? ===\n");
-    /*
-     * Nee, dit komt niet alleen in C voor.
-     * Het is een eigenschap van de hardware / het two's complement
-     * formaat dat bijna alle CPUs gebruiken. Dus C, C++, assembly,
-     * Rust (in release mode wrapt het ook), Java (wrapt stil),
-     * en zelfs Go hebben hier last van.
-     * Het verschil zit hem in hoe de taal er mee om gaat:
-     *   - C/C++: signed overflow is undefined behavior
-     *   - Java:  wrapt netjes rond, gedefinieerd
-     *   - Rust:  panic in debug, wrap in release
-     *   - Python: gebruikt big ints, dus geen overflow
-     * Alleen talen met arbitrary precision ints (zoals Python)
-     * hebben hier geen last van.
-     */
-    printf("zie uitleg in de comments hierboven\n");
-
-
     printf("\n=== Integer Overflow 8: casting zonder problemen ===\n");
     /*
-     * Als ik van een klein type naar een groter type cast,
+     * Als je van een klein type naar een groter type cast,
      * past de waarde altijd. Hier gaat int8_t naar int32_t.
      * Dit kan nooit fout gaan want het bereik van de bron
      * past volledig in het doel.
@@ -132,13 +111,13 @@ int main(void) {
     printf("met    probleem:  %d  ->  %d  (afgekapt!)\n", onveilig, r2);
 
 
-    /* ============================================================
+    /* ============================================================D
      *  FORMAT STRING
      * ============================================================ */
 
     printf("\n=== Format String 1: veilige en kwetsbare variant ===\n");
     /*
-     * Ik laat de gebruiker een naam invoeren.
+     * laat de gebruiker een naam invoeren.
      * - Veilige variant: gebruikt "%s" als format string.
      * - Kwetsbare variant: stopt de gebruikersinvoer rechtstreeks
      *   in de format string. Als de gebruiker dan %s of %x invoert
@@ -153,35 +132,21 @@ int main(void) {
 
     printf("\n-- kwetsbaar --\n");
     /*
-     * LET OP: dit is expres fout. Als je hier %x %x %x %s invoert
+     * Als je hier %s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s invoert
      * gaat printf waardes van de stack lezen en kan crashen.
      */
     printf(naam);                  /* <-- format string bug */
     printf("\n");
-
-
-    printf("\n=== Format String 2: crash testen ===\n");
-    /*
-     * Test:
-     *   - voer bij de veilige variant in: %s %s %s %s
-     *     output is gewoon de letterlijke tekst.
-     *   - voer bij de kwetsbare variant in: %s %s %s %s
-     *     het programma crasht of print rare hex troep,
-     *     omdat printf adressen van de stack als pointer
-     *     probeert te dereferencen.
-     */
-    printf("zie hierboven, test met invoer:  %%s %%s %%s %%s\n");
-
-
+    
     /* ============================================================
      *  MEMORY DUMP
      * ============================================================ */
 
     printf("\n=== Memory Dump 1: input in buffer terugvinden ===\n");
     /*
-     * Ik lees een string in en zet die op de stack.
-     * Daarna kan ik via Debug -> Windows -> Memory in Visual Studio
-     * naar het adres van buffer kijken en zie ik letterlijk
+     * lees een string in en zet die op de stack.
+     * Daarna kan je via Debug -> Windows -> Memory in Visual Studio
+     * naar het adres van buffer kijken en zie je letterlijk
      * mijn ingevoerde tekst in het geheugen staan.
      * Met de Binary Editor kan je hetzelfde doen op een .exe of dump.
      */
@@ -189,13 +154,13 @@ int main(void) {
     printf("typ een geheime tekst: ");
     scanf("%63s", buffer);
     printf("ingevoerd: %s\n", buffer);
-    printf("kijk in Memory Window op adres &buffer (%p)\n", (void*)buffer);
+    printf("kijk in Memory Window op adres &buffer \n");
 
 
     printf("\n=== Memory Dump 2: memset wissen, verschil debug/release ===\n");
     /*
-     * Nu maak ik de buffer leeg met memset zodat de tekst
-     * weg is uit het geheugen. Daarna gebruik ik de buffer
+     * Nu maak je de buffer leeg met memset zodat de tekst
+     * weg is uit het geheugen. Daarna gebruik je de buffer
      * niet meer.
      *
      * Verschil:
@@ -211,6 +176,7 @@ int main(void) {
      *    daarom bestaat memset_s / SecureZeroMemory die de
      *    compiler niet mag weg-optimaliseren.
      */
+    printf("buffer adres: %p\n", (void*)buffer);                //Release Mode
     memset(buffer, 0, sizeof(buffer));
     printf("buffer is gewist met memset\n");
     printf("kijk nu opnieuw in Memory Window naar &buffer\n");
