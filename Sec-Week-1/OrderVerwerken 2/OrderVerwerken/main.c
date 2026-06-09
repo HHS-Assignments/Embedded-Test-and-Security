@@ -84,13 +84,15 @@ int main(int argc, char** argv) {
 	// 
 
 	// OPD D - pointer wordt overschreven via overflow
-	int fakeBuffer[5];
-	int ptr = 0x12345678;
+	int buffie[5] = { 1, 2, 3, 4, 5 };
+	int* ptr = buffie;
 
 	printf("Voor: ptr = %p\n", (void*)ptr);
 
 	// overflow: schrijf voorbij array in geheugen
-	fakeBuffer[6] = 0xCAFEBABE;   // overschrijft geheugen naast buffer
+	char override[4];
+	strcpy(override, "deze text geeft problemene");
+
 
 	printf("Na: ptr = %p\n", (void*)ptr);
 
