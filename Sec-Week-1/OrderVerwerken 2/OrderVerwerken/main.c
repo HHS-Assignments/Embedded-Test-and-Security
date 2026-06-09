@@ -65,8 +65,6 @@ int main(int argc, char** argv) {
 	strcpy(small, "ABCDEFGHIJKL"); // 12 chars + \0
 
 	printf("\nOPD B - inhoud buffer: %s\n", small);
-	printf("Let op: overflow kan a/b/c overschrijven\n");
-
 	printf("Lengte string = %zu\n", strlen("ABCDEFGHIJKL"));
 
 
@@ -77,11 +75,6 @@ int main(int argc, char** argv) {
 	Tellen[12] = 0xDEADBEEF;  // foutieve index -> memory corruptie
 
 	printf("Tellen[12] gezet (out of bounds)\n");
-
-
-	//
-	// D NOG AAN WERKEN
-	// 
 
 	// OPD D - pointer wordt overschreven via overflow
 	int buffie[5] = { 1, 2, 3, 4, 5 };
@@ -99,12 +92,12 @@ int main(int argc, char** argv) {
 
 	// OPD E - effect van aangepaste pointer
 	printf("\nOPD E - pointer dereference\n");
-
-	// LET OP: dit kan crashen als ptr echt aangepast is
-	// *ptr = 5;
-
-	printf("Als ptr geldig was -> schrijven naar adres\n");
-
+	int* ptr2;
+	int tel[10] = { 0,1,2,3,4,5,6,7,8,9 };
+	ptr2 = (int*)0x12345678;
+	printf("ptr2: %p\n", (void*)ptr2);
+	tel[10] = 0xDEADBEEF;
+	printf("Na overflow: ptr2: %p\n", (void*)ptr2);
 
 	// OPD F - crash veroorzaken zonder printf
 	printf("\nOPD F - crash trigger\n");
@@ -112,7 +105,7 @@ int main(int argc, char** argv) {
 	int* crashPtr = NULL;
 
 	// Alternatieve instructie (geen printf):
-	//*crashPtr = 123;   // NULL dereference -> crash
+	*crashPtr = 123;   // NULL dereference -> crash
 
 
 	FILE *f;
