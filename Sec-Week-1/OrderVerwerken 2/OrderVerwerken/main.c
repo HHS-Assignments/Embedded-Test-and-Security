@@ -69,10 +69,12 @@ int main(int argc, char** argv) {
 
 
 	// OPD C - array overflow via foutieve index
+	int i = 66;
 	int Tellen[10] = { 0,1,2,3,4,5,6,7,8,9 };
 
 	printf("\nOPD C - array overflow\n");
-	Tellen[12] = 0xDEADBEEF;  // foutieve index -> memory corruptie
+	int j = 10;
+	Tellen[10] = 0xDEADBEEF;  // foutieve index -> memory corruptie
 
 	printf("Tellen[12] gezet (out of bounds)\n");
 
@@ -101,7 +103,6 @@ int main(int argc, char** argv) {
 
 	// OPD F - crash veroorzaken zonder printf
 	printf("\nOPD F - crash trigger\n");
-
 	int* crashPtr = NULL;
 
 	// Alternatieve instructie (geen printf):
